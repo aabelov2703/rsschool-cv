@@ -10,7 +10,7 @@ I'm SQL Developer and have expierence with different relational DB. Also I have 
 **CVS**: Git, SVN \
 **IDE**: VS, VS Code, PyCharm \
 **Agile**: Scrum \
-**Others**: Dockers
+**Others**: Dockers, bash-scripts
 ## Experience
 **I-SERV**: *March 2018 - December 2020*. SQL Developer \
 **OTR-2000**: *June 2006 - February 2018*. SQL Developer
