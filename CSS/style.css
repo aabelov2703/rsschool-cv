@@ -4,7 +4,8 @@
   --bg1: #f5feff;
   --bg2: #eafdff;
   --bg-h2: #66d4ff;
-  --a: #0300cc;
+  --a: #03009b;
+  --black: #000000;
 }
 
 * {
@@ -14,6 +15,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   background-color: var(--bg1);
 }
 
@@ -25,45 +27,27 @@ body {
 }
 
 .cntr {
-  width: 75%;
-  min-width: 700px;
-  margin: 5px 0;
   position: relative;
-  padding: 0 0 0 10%;
   background-color: var(--bg2);
   box-shadow: 3px 0 50px -30px;
+  padding: 0 25px;
 }
 
-aside {
-  width: 25%;
-}
-
-.header,
-.main,
+header,
+main,
 footer {
-  margin: 25px 0;
+  margin: 25px 15px;
   width: 90%;
 }
 
-.main {display:block;}
-
-nav {
-  margin: -15px 0 10px 0;
-  font-size: small;
-}
-
-nav ul {
-  padding: 0;
+header {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  opacity: .75;
+  flex-direction: column;
 }
 
-a {
-  text-decoration: none;
-  color: var(--a);
+.nav-wrap {
+  min-height: 2.5rem;
 }
 
 .header-container {
@@ -71,10 +55,40 @@ a {
 }
 
 .header-container img {
-  max-width: 200px;
-  border-radius: 25%;
+  width: 30%;
+  min-width: 200px;
+  border-radius: 2%;
   box-shadow: 0 0px 10px -1px var(--bg-h2);
   flex-grow: 1;
+}
+
+.nav li {
+  display: inline-block;
+}
+
+.nav a {
+  margin: 0 2px;
+  color: var(--a);
+  line-height: 100%;
+  font-size: .75rem;
+}
+.nav a:hover {
+  background-color: var(--a);
+  color: var(--bg1);
+  border-radius: 3px;
+}
+
+.nav .menu a {
+  display: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--a);
 }
 
 h1, 
@@ -82,42 +96,146 @@ h2 {
   font-family: 'Helvetica';
 }
 
+h1,
+h3 {
+  color: var(--bg-h2);
+  transform: skew(353deg);
+  text-shadow: 1px 0px 1px var(--black);
+}
+
 h1 {
   margin-top: 15px;
 }
+
 h2 {
-  margin: 5px 0 5px 0;
-  padding: 0 0 0 15px;
-  transform: skew(353deg) translateX(-5%);
+  margin: 5px 0 0 0;
+  padding: 0 0 0 25px;
   background: linear-gradient(to left, var(--bg2), var(--bg-h2) 100%);
+  transform: skew(353deg) translateX(-50px);
+  color: var(--bg1);
+  text-shadow: 2px 0px 2px var(--a);
+}
+
+h4 {
+  margin: 5px 0 0 -10px;
+}
+
+pre{
+  width: 100%;
+  overflow-x: scroll;
+  background-color: var(--bg1);
 }
 
 .h1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 7;
+  flex-grow: 5;
+  text-align: center;
 }
 
 section {
-  margin: 15px 0;
-  z-index: 1;
+  margin: 25px 0;
 }
 
-ul {
-  list-style: none;
+.slider {
+  width: 100%;
 }
 
 footer {
+  min-width: 90%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: calc(80%);
-  margin-top: 10px;
+  margin-top: 100px;
   font-size: small;
 }
 
 footer img {
   background-repeat: no-repeat;
   height: 30px;
+}
+
+.video {
+  height: 0;
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+.video iframe {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  border: 0;
+}
+
+@media screen and (max-width: 1920px) {
+  .cntr {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 800px){
+  .cntr {
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 256px) and (max-width: 550px) {
+  .cntr {
+    width: 100%;
+    box-shadow: inset 3px 0 50px -30px;
+  }
+  .header-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header-container img {
+    width: 80%;
+    margin: 0 10%;
+    border-radius: 2%;
+  }
+  h2 {
+    padding: 0 0 0 40px;
+    transform: skew(353deg) translateX(-40px);
+  }
+}
+
+@media screen and (max-width: 800px){
+  .nav {
+    position: relative;
+  }
+  .nav ul {
+    top: 0;
+    left: 0;
+    width: 180px;
+    position: absolute;
+    background: var(--bg2);
+    z-index: 1;
+  }
+  .nav ul:hover li {
+    display: block;
+    margin: 0 0 5px;
+  }
+  .nav li {
+    display: none;
+  }
+  .nav .menu {
+    display: block;
+  }
+  .nav .menu a {
+    display: block;
+    background: var(--bg-h1);
+    color: var(--a);
+  }
+  .nav .menu a::before {
+    margin-left: -15px;
+    content: "\2630   ";
+  }  
+  .nav a {
+    display: block;
+    padding: 5px 0 5px 20px;
+    text-align: left;
+    font-size: 1rem;
+  }
+  
 }
