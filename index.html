@@ -7,6 +7,7 @@
   <title>CV Aleksandr Belov</title>
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="icon" href="Images/CV-fav.png">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/default.min.css">
 </head>
 <body>
   <div class="cntr">
@@ -45,15 +46,15 @@
       <section id="about">
         <h2>About</h2>
         <div class="about">
-          <div class="summary">
-            <h4>Summary</h4>
-            <p>I'm SQL Developer and have expierence with different relational DB. Also I have expierence with OLAP columnar db Clickhouse from Yandex and ETL processes. Besides that I'm familiar with Docker and bash-scripts little bit. So, now my goal is to be familiar with front-end developing in JS</p>
-          </div>
           <div class="more">
             <h4>More about me</h4>
             <div class="video">
               <iframe src="https://www.youtube.com/embed/ZQ_fx9z-MQo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
+          </div>
+          <div class="summary">
+            <h4>Summary</h4>
+            <p>I'm SQL Developer and have expierence with different relational DB. Also I have expierence with OLAP columnar db Clickhouse from Yandex and ETL processes. Besides that I'm familiar with Docker and bash-scripts little bit. So, now my goal is to be familiar with front-end developing in JS</p>
           </div>
         </div>
       </section>
@@ -72,7 +73,8 @@
         <h2>Examples</h2>
         <h4>Python</h4>
         <h5>Quick sort algorithm</h5>
-        <pre>def quick_sort(nums, fst, lst):
+        <pre>
+          <code class="python">def quick_sort(nums, fst, lst):
     if fst >= lst:
         return
     # ini
@@ -92,11 +94,13 @@
         quick_sort(nums, fst, j)
     if i &lt; lst:
         quick_sort(nums, i, lst)
-    return nums</pre>
+    return nums</code>
+      </pre>
       <h4>JavaScript</h4>
       <h5>Human readable number</h5>
       <h6> * up to 999</h6>
-      <pre>const toReadable = (num) => {
+      <pre>
+        <code class="JavaScript">const toReadable = (num) => {
   let arr1 = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eigth', 'nine', 
         'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen',
         'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'],
@@ -113,7 +117,8 @@
     res += (num % 100 === 0) ? '' : ' ' + toReadable(num % 100); // recursive tens & digits
   }
   return res;
-};</pre>
+};      </code>
+      </pre>
       </section>
       <section id="projects">
         <h2>Projects</h2>
@@ -121,7 +126,8 @@
           <div class="prj-slider">
             <div class="project">
               <h4>Clock-slider</h4>
-               <a href="https://rolling-scopes-school.github.io/aabelov2703-JSFEPRESCHOOL/Vertical%20Slider/" target="_blank">
+              <p>Learning DOM technology and animation</p>
+              <a href="https://rolling-scopes-school.github.io/aabelov2703-JSFEPRESCHOOL/Vertical%20Slider/" target="_blank">
                 <img src="Images/prj-slider.png" alt="Slider" class="slider">
               </a>
               <h6>* wide screen size only</h6>
@@ -129,6 +135,7 @@
           </div>
           <div class="prj-whack">
             <h4>Whack-a-mole game</h4>
+            <p>Learning DOM technology and localStorage</p>
             <div class="project">
               <a href="https://rolling-scopes-school.github.io/aabelov2703-JSFEPRESCHOOL/whack-a-mole/" target="_blank">
                 <img src="Images/prj-whack.png" alt="Slider" class="whack">
@@ -170,5 +177,8 @@
       </ul>
     </footer>
   </div>
+  <script src="JS/script.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
