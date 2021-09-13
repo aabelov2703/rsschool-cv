@@ -6,25 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Aleksandr Belov</title>
   <link rel="stylesheet" href="CSS/style.css">
+  <link rel="icon" href="Images/CV-fav.png">
 </head>
 <body>
   <div class="cntr">
-    <header class="header">
-      <nav>
-        <ul>
-          <li><a href="#contacts">Contacts</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#languages">Languages</a></li>
-        </ul>
-      </nav>
+    <header>
+      <div class="nav-wrap">
+        <nav class="nav">
+          <ul>
+            <li class="menu"><a href="#">Menu</a></li>
+            <li><a href="#contacts">CONTACTS</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#code">CODE</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#experience">EXPIERENCE</a></li>
+            <li><a href="#education">EDUCATION</a></li>
+            <li><a href="#languages">LANGUAGE</a></li>
+          </ul>
+        </nav>
+      </div>
       <div class="header-container">
         <img src="Images/im.jpg" alt="profile">
         <div class="h1">
           <h1>Aleksandr Belov</h1>
-          <p>Database Developer</p>
+          <h3>Database Developer</h3>
         </div>
       </div>
     </header>
@@ -32,51 +38,113 @@
       <section id="contacts">
         <h2>Contacts</h2>
         <ul>
-          <li><b>Email</b>: <a href="mailto:alex.belov.2703@gmail.com">alex.belov.2703@gmail.com</a></li>
-          <li><b>Git</b>: <a href="https://github.com/aabelov2703">https://github.com/aabelov2703</a></li>
+          <li><h4>Email:</h4> <a href="mailto:alex.belov.2703@gmail.com">alex.belov.2703@gmail.com</a></li>
+          <li><h4>Git:</h4> <a href="https://github.com/aabelov2703">https://github.com/aabelov2703</a></li>
         </ul>
           </section>
       <section id="about">
         <h2>About</h2>
+        <h4>Summary</h4>
         <p>I'm SQL Developer and have expierence with different relational DB. Also I have expierence with OLAP columnar db Clickhouse from Yandex and ETL processes. Besides that I'm familiar with Docker and bash-scripts little bit. So, now my goal is to be familiar with front-end developing in JS</p>
-      </section>
+        <h4>More about me</h4>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/ZQ_fx9z-MQo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
       <section id="skills">
         <h2>Skills</h2>
         <ul>
-          <li><b>Languages</b>: PL/PgSQL, PL/SQL, TSQL, Python, HTML, CSS, JS</li>
-          <li><b>Databases</b>: Oracle, MS SQL, Postgres, Clickhouse</li>
-          <li><b>CVS</b>: Git, SVN</li>
-          <li><b>IDE</b>: VS, VS Code, PyCharm</li>
-          <li><b>Agile</b>: Scrum</li>
-          <li><b>Others</b>: Dockers, bash-scripts</li>
+          <li><h4>Languages:</h4> PL/PgSQL, PL/SQL, TSQL, Python, HTML, CSS, JS</li>
+          <li><h4>Databases:</h4> Oracle, MS SQL, Postgres, Clickhouse</li>
+          <li><h4>CVS:</h4> Git, SVN</li>
+          <li><h4>IDE:</h4> VS, VS Code, PyCharm</li>
+          <li><h4>Agile:</h4> Scrum</li>
+          <li><h4>Others:</h4> Dockers, bash-scripts</li>
         </ul>
+      </section>
+      <section id="code">
+        <h2>Examples</h2>
+        <h4>Python</h4>
+        <h5>Quick sort algorithm</h5>
+        <pre>def quick_sort(nums, fst, lst):
+    if fst >= lst:
+        return
+    # ini
+    i, j = fst, lst
+    pivot = nums[(i + j) // 2]
+    # swap around median
+    while i &lt;= j:
+        while nums[i] &lt; pivot:
+            i += 1
+        while nums[j] > pivot:
+            j -= 1
+        if i &lt;= j:
+            nums[i], nums[j] = nums[j], nums[i]
+            i, j = i + 1, j - 1
+    # recursive call
+    if fst &lt; j:
+        quick_sort(nums, fst, j)
+    if i &lt; lst:
+        quick_sort(nums, i, lst)
+    return nums</pre>
+      <h4>JavaScript</h4>
+      <h5>Human readable number</h5>
+      <h6> * up to 999</h6>
+      <pre>const toReadable = (num) => {
+  let arr1 = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eigth', 'nine', 
+        'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen',
+        'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'],
+  res = '',
+  ind = String(num).length;        
+
+  if (ind === 1 || (ind === 2 && num &lt; 20)) {
+    res = arr1[num]; // 0..19
+  } else if (ind == 2) {
+    res = arr1[18 + Math.floor(num / 10)]; // tens
+    res += (num % 10 === 0) ? '' : ' ' + toReadable(num % 10); // recursive digits
+  } else {
+    res = arr1[Math.floor(num / 100)] + ' hundred'; // hundreeds
+    res += (num % 100 === 0) ? '' : ' ' + toReadable(num % 100); // recursive tens & digits
+  }
+  return res;
+};</pre>
+      </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <h4>Vertical/horizontal clock slider for multiple time zones</h4>
+        <div class="project">
+          <a href="https://rolling-scopes-school.github.io/aabelov2703-JSFEPRESCHOOL/Vertical%20Slider/" target="_blank">
+            <img src="Images/project.png" alt="Slider" class="slider">
+          </a>
+          <h6>* wide screen size only</h6>
+        </div>
       </section>
       <section id="experience">
         <h2>Experience</h2>
         <ul>
-          <li><b>I-SERV</b>: <i>March 2018 - December 2020</i>. SQL Developer</li>
-          <li><b>OTR-2000</b>: <i>June 2006 - February 2018</i>. SQL Developer</li>
+          <li><h4>I-SERV:</h4> <i>March 2018 - December 2020</i>. SQL Developer</li>
+          <li><h4>OTR-2000:</h4> <i>June 2006 - February 2018</i>. SQL Developer</li>
         </ul>
       </section>
       <section id="education">
         <h2>Education</h2>
         <ul>
-          <li><b>Chuvah State University</b>: <i>1995 - 2000</i></li>
-          <li><b>self-education</b>: Python, bash-scripts, Java</li>
-          <li><b>online courses</b>: <i>June 2021 - now</i>. JS/Front-end разработчик</li>
+          <li><h4>Chuvah State University:</h4> <i>1995 - 2000</i></li>
+          <li><h4>self-education:</h4> Python, bash-scripts, Java</li>
+          <li><h4>online courses:</h4> <i>June 2021 - now</i>. JS/Front-end разработчик</li>
         </ul>
       </section>
       <section id="languages">
         <h2>Languages</h2>
         <ul>
-          <li><b>Russian</b>: Native</li>
-          <li><b>English</b>: Intermediate (B2)</li>
+          <li><h4>Russian:</h4> Native</li>
+          <li><h4>English:</h4> Intermediate (B2)</li>
         </ul>
         <p></p>
       </section>
     </main>
     <footer>
-      <a href="https://app.rs.school/"><img src="Images/logo-rsschool3.png" alt="logo"></a>
+      <a href="https://rs.school/js/"><img src="Images/rs_school_js.svg" alt="logo"></a>
       <ul>
         <li><a href="https://github.com/aabelov2703">https://github.com/aabelov2703</a></li>
         <li>&copy;2021</li>
