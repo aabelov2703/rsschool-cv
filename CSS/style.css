@@ -12,6 +12,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 html {
@@ -33,38 +34,36 @@ body {
   box-shadow: 3px 0 50px -30px;
   padding: 0 25px;
 }
+header {
+  width: 30%;
+}
+main,
+footer {
+  width: 65%;
+  
+}
 
 header,
 main,
 footer {
   margin: 25px 15px;
-  width: 90%;
-  
 }
-
-header {
-  width: 100%;
-  margin: 25px 10%;
+.div-header{
   display: flex;
   flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
 }
 
 .nav-wrap {
   min-height: 2.5rem;
 }
-
-.header-container {
-  width: 80%;
-  display: flex;
-  justify-content: center;
-}
-
 .header-container img {
-  width: 30%;
-  min-width: 200px;
-  border-radius: 2%;
+  width:100%; 
   box-shadow: 0 0px 10px -1px var(--bg-h2);
-  flex-grow: 1;
 }
 
 .nav li {
@@ -113,10 +112,9 @@ h1 {
 }
 
 h2 {
-  margin: 5px 0 0 0;
   padding: 0 0 0 30px;
   background: linear-gradient(to left, var(--bg2), var(--bg-h2) 100%);
-  transform: skew(353deg) translateX(-50px);
+  transform: skew(353deg) translateX(-10px);
   color: var(--bg1);
   text-shadow: 2px 0px 2px var(--a);
 }
@@ -125,26 +123,29 @@ h4 {
   margin: 5px 0 0 -10px;
 }
 
+h6 {
+  margin-bottom: 1rem;
+}
+
 .h1 {
   flex-grow: 5;
   text-align: center;
   margin: 5% 0;
 }
+.sp-h {
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.img-span {
+  top: 5px;
+  height: 1.5rem;
+}
 
 section {
-  margin: 25px 0;
+  margin-bottom: 50px;
 }
 
-.about,
-.projects {
-  display: flex;
-  justify-content: space-between;
-}
-
-.about > div,
-.projects > div {
-  width: 49%;
-}
 .slider,
 .whack {
   width: 98%;
@@ -163,6 +164,10 @@ section {
   top: 0;
   position: absolute;
   border: 0;
+}
+
+pre {
+  font-size: .5rem;
 }
 
 footer {
@@ -206,6 +211,12 @@ footer img {
 }
 
 @media screen and (max-width: 800px){
+  header,
+  main,
+  footer {
+    width: 100%;
+  }
+
   .nav {
     position: relative;
   }
@@ -242,6 +253,9 @@ footer img {
     text-align: left;
     font-size: 1rem;
   }
+  .container {
+    flex-direction: column;
+}
   .about,
   .projects {
     flex-direction: column;
